@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuantumGuard | Quantum Security Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuantumGuard | Quantum Security Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">Q</div>
+
+            <div>
+                <h2>QuantumGuard</h2>
+                <span>Quantum Security</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <button class="nav-btn active" data-section="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-btn" data-section="simulation">
+                <span>⚛</span>
+                Simulation
+            </button>
+
+            <button class="nav-btn" data-section="scenarios">
+                <span>◈</span>
+                Scenarios
+            </button>
+
+            <button class="nav-btn" data-section="results">
+                <span>▥</span>
+                Results
+            </button>
+
+            <button class="nav-btn" data-section="history">
+                <span>◷</span>
+                History
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>Simulation Engine Ready</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Quantum Security Dashboard</h1>
+                <p id="pageSubtitle">
+                    Quantum entanglement-based intrusion detection
+                </p>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="live-badge">
+                    <span></span>
+                    LIVE SIMULATOR
+                </div>
+
+                <button class="icon-btn" id="resetBtn">
+                    ↻
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section active">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        QUANTUM COMMUNICATION SECURITY
+                    </span>
+
+                    <h2>
+                        Detect the unseen.
+                        <br>
+                        <span>Protect the quantum channel.</span>
+                    </h2>
+
+                    <p>
+                        QuantumGuard simulates entangled photon communication,
+                        channel noise and eavesdropping attacks to identify
+                        potential quantum security threats.
+                    </p>
+
+                    <button class="primary-btn" id="startSimulationBtn">
+                        Run New Simulation →
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="quantum-orbit orbit-1"></div>
+                    <div class="quantum-orbit orbit-2"></div>
+
+                    <div class="quantum-core">
+                        <span>⚛</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- METRICS -->
+
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>QBER</span>
+                        <span class="metric-icon">%</span>
+                    </div>
+
+                    <h3 id="dashQber">0.0%</h3>
+
+                    <p id="dashQberText">
+                        No simulation yet
+                    </p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>CHSH VALUE</span>
+                        <span class="metric-icon">∑</span>
+                    </div>
+
+                    <h3 id="dashChsh">2.82</h3>
+
+                    <p>Bell correlation indicator</p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>DECOHERENCE</span>
+                        <span class="metric-icon">◌</span>
+                    </div>
+
+                    <h3 id="dashDecoherence">LOW</h3>
+
+                    <p>Quantum state stability</p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>SECURITY</span>
+                        <span class="metric-icon">◆</span>
+                    </div>
+
+                    <h3 id="dashSecurity">READY</h3>
+
+                    <p id="dashSecurityText">
+                        Waiting for simulation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHANNEL -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Quantum Channel</h3>
+                        <p>Entangled photon transmission monitor</p>
+                    </div>
+
+                    <span class="channel-status" id="channelStatus">
+                        IDLE
+                    </span>
+
+                </div>
+
+
+                <div class="channel">
+
+                    <div class="node alice">
+
+                        <div class="node-circle">
+                            A
+                        </div>
+
+                        <strong>Alice</strong>
+                        <small>Sender</small>
+
+                    </div>
+
+
+                    <div class="channel-line">
+
+                        <div class="line-track"></div>
+
+                        <div id="photonContainer"></div>
+
+                        <div class="channel-label">
+                            ENTANGLED QUANTUM CHANNEL
+                        </div>
+
+                    </div>
+
+
+                    <div class="node eve-node" id="eveNode">
+
+                        <div class="node-circle">
+                            E
+                        </div>
+
+                        <strong>Eve</strong>
+                        <small>Potential Intruder</small>
+
+                    </div>
+
+
+                    <div class="channel-line short">
+
+                        <div class="line-track"></div>
+
+                        <div id="photonContainer2"></div>
+
+                    </div>
+
+
+                    <div class="node bob">
+
+                        <div class="node-circle">
+                            B
+                        </div>
+
+                        <strong>Bob</strong>
+                        <small>Receiver</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="quick-grid">
+
+                <button class="quick-card" data-section="simulation">
+
+                    <span>⚛</span>
+
+                    <div>
+                        <strong>Custom Simulation</strong>
+                        <small>Configure quantum parameters</small>
+                    </div>
+
+                    →
+                </button>
+
+
+                <button class="quick-card" data-section="scenarios">
+
+                    <span>◈</span>
+
+                    <div>
+                        <strong>Attack Scenarios</strong>
+                        <small>Test different conditions</small>
+                    </div>
+
+                    →
+                </button>
+
+
+                <button class="quick-card" id="mysteryQuick">
+
+                    <span>?</span>
+
+                    <div>
+                        <strong>Mystery Mode</strong>
+                        <small>Find the hidden intruder</small>
+                    </div>
+
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIMULATION -->
+        <section id="simulation" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SIMULATION ENGINE</span>
+
+                    <h2>Configure Quantum Channel</h2>
+
+                    <p>
+                        Set the channel conditions and run a security simulation.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="simulation-layout">
+
+                <div class="panel settings-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Simulation Parameters</h3>
+                            <p>Control the quantum communication environment</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Photon Pairs
+
+                            <strong id="photonValue">
+                                1000
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="photonPairs"
+                            min="100"
+                            max="5000"
+                            step="100"
+                            value="1000"
+                        >
+
+                        <div class="range-info">
+                            <span>100</span>
+                            <span>5000</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Channel Noise
+
+                            <strong id="noiseValue">
+                                2%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="noise"
+                            min="0"
+                            max="30"
+                            step="1"
+                            value="2"
+                        >
+
+                        <div class="range-info">
+                            <span>0%</span>
+                            <span>30%</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            QBER Threshold
+
+                            <strong id="thresholdValue">
+                                11%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="threshold"
+                            min="5"
+                            max="25"
+                            step="1"
+                            value="11"
+                        >
+
+                        <div class="range-info">
+                            <span>5%</span>
+                            <span>25%</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toggle-row">
+
+                        <div>
+                            <strong>Enable Eve Attack</strong>
+
+                            <small>
+                                Simulate an intercept-resend eavesdropper
+                            </small>
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="eveToggle"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div
+                        class="form-group"
+                        id="interceptGroup"
+                        style="display:none;"
+                    >
+
+                        <label>
+                            Eve Intercept Rate
+
+                            <strong id="interceptValue">
+                                40%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="interceptRate"
+                            min="5"
+                            max="100"
+                            step="5"
+                            value="40"
+                        >
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn full"
+                        id="runBtn"
+                    >
+                        ⚛ Run Quantum Simulation
+                    </button>
+
+                </div>
+
+
+                <div class="panel live-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Live Channel</h3>
+                            <p id="liveText">
+                                Ready to transmit photons
+                            </p>
+                        </div>
+
+                        <span
+                            class="channel-status"
+                            id="liveStatus"
+                        >
+                            READY
+                        </span>
+
+                    </div>
+
+
+                    <div class="live-channel">
+
+                        <div class="live-node">
+                            <div>A</div>
+                            <span>ALICE</span>
+                        </div>
+
+
+                        <div class="live-line">
+
+                            <div class="pulse"></div>
+
+                            <span>
+                                Quantum Channel
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="live-eve"
+                            id="liveEve"
+                        >
+                            EVE
+                        </div>
+
+
+                        <div class="live-line">
+
+                            <div class="pulse"></div>
+
+                        </div>
+
+
+                        <div class="live-node">
+                            <div>B</div>
+                            <span>BOB</span>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="progress-wrap"
+                        id="progressWrap"
+                    >
+
+                        <div class="progress-label">
+
+                            <span>Transmission</span>
+
+                            <strong id="progressPercent">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+                            <div id="progressBar"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENARIOS -->
+        <section id="scenarios" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">DEMO SCENARIOS</span>
+
+                    <h2>Security Attack Lab</h2>
+
+                    <p>
+                        Run predefined scenarios for your hackathon demonstration.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="scenario-grid">
+
+                <button
+                    class="scenario-card safe"
+                    data-scenario="safe"
+                >
+
+                    <span class="scenario-icon">✓</span>
+
+                    <h3>Safe Channel</h3>
+
+                    <p>
+                        Low noise, no eavesdropper.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card noise"
+                    data-scenario="noise"
+                >
+
+                    <span class="scenario-icon">≈</span>
+
+                    <h3>Noisy Channel</h3>
+
+                    <p>
+                        Environmental noise without an attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card light"
+                    data-scenario="light"
+                >
+
+                    <span class="scenario-icon">!</span>
+
+                    <h3>Light Attack</h3>
+
+                    <p>
+                        Low-rate intercept-resend attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card heavy"
+                    data-scenario="heavy"
+                >
+
+                    <span class="scenario-icon">⚠</span>
+
+                    <h3>Heavy Attack</h3>
+
+                    <p>
+                        High-rate eavesdropping attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card mystery"
+                    data-scenario="mystery"
+                >
+
+                    <span class="scenario-icon">?</span>
+
+                    <h3>Mystery Mode</h3>
+
+                    <p>
+                        The detector must discover whether Eve exists.
+                    </p>
+
+                    <strong>Start Mystery →</strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+        <section id="results" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">DETECTION RESULTS</span>
+
+                    <h2>Quantum Security Analysis</h2>
+
+                    <p>
+                        Detailed analysis of the latest simulation.
+                    </p>
+
+                </div>
+
+                <span
+                    class="result-badge"
+                    id="resultBadge"
+                >
+                    NO DATA
+                </span>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-card main-result">
+
+                    <span>QBER</span>
+
+                    <strong id="resultQber">
+                        0.0%
+                    </strong>
+
+                    <div class="threshold-bar">
+
+                        <div
+                            class="threshold-fill"
+                            id="thresholdFill"
+                        ></div>
+
+                        <div class="threshold-line"></div>
+
+                    </div>
+
+                    <small id="thresholdText">
+                        Threshold: 11%
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>CHSH VALUE</span>
+
+                    <strong id="resultChsh">
+                        2.82
+                    </strong>
+
+                    <small>
+                        Ideal entangled correlation ≈ 2.82
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>DECOHERENCE</span>
+
+                    <strong id="resultDecoherence">
+                        LOW
+                    </strong>
+
+                    <small>
+                        Estimated quantum state disturbance
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>ERRORS</span>
+
+                    <strong id="resultErrors">
+                        0
+                    </strong>
+
+                    <small id="resultTotal">
+                        out of 0 measurements
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-layout">
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>QBER Analysis</h3>
+                            <p>Observed error rate vs security threshold</p>
+                        </div>
+
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="qberChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <div class="panel alert-panel">
+
+                    <div class="alert-icon" id="alertIcon">
+                        ✓
+                    </div>
+
+                    <h3 id="alertTitle">
+                        Waiting for simulation
+                    </h3>
+
+                    <p id="alertDescription">
+                        Run a simulation to generate a security assessment.
+                    </p>
+
+
+                    <div class="recommendation">
+
+                        <strong>Recommendation</strong>
+
+                        <p id="recommendationText">
+                            Configure the channel and start a simulation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+        <section id="history" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SIMULATION HISTORY</span>
+
+                    <h2>Previous Runs</h2>
+
+                    <p>
+                        Results stored locally for this browser session.
+                    </p>
+                </div>
+
+                <button
+                    class="secondary-btn"
+                    id="clearHistoryBtn"
+                >
+                    Clear History
+                </button>
+
+            </div>
+
+
+            <div class="panel history-panel">
+
+                <div class="history-table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Run</th>
+                                <th>Photons</th>
+                                <th>Noise</th>
+                                <th>Eve</th>
+                                <th>QBER</th>
+                                <th>CHSH</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+<div
+    class="toast"
+    id="toast"
+>
+    Simulation completed
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">Q</div>
+
+            <div>
+                <h2>QuantumGuard</h2>
+                <span>Quantum Security</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <button class="nav-btn active" data-section="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-btn" data-section="simulation">
+                <span>⚛</span>
+                Simulation
+            </button>
+
+            <button class="nav-btn" data-section="scenarios">
+                <span>◈</span>
+                Scenarios
+            </button>
+
+            <button class="nav-btn" data-section="results">
+                <span>▥</span>
+                Results
+            </button>
+
+            <button class="nav-btn" data-section="history">
+                <span>◷</span>
+                History
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>Simulation Engine Ready</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Quantum Security Dashboard</h1>
+                <p id="pageSubtitle">
+                    Quantum entanglement-based intrusion detection
+                </p>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="live-badge">
+                    <span></span>
+                    LIVE SIMULATOR
+                </div>
+
+                <button class="icon-btn" id="resetBtn">
+                    ↻
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section active">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        QUANTUM COMMUNICATION SECURITY
+                    </span>
+
+                    <h2>
+                        Detect the unseen.
+                        <br>
+                        <span>Protect the quantum channel.</span>
+                    </h2>
+
+                    <p>
+                        QuantumGuard simulates entangled photon communication,
+                        channel noise and eavesdropping attacks to identify
+                        potential quantum security threats.
+                    </p>
+
+                    <button class="primary-btn" id="startSimulationBtn">
+                        Run New Simulation →
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="quantum-orbit orbit-1"></div>
+                    <div class="quantum-orbit orbit-2"></div>
+
+                    <div class="quantum-core">
+                        <span>⚛</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- METRICS -->
+
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>QBER</span>
+                        <span class="metric-icon">%</span>
+                    </div>
+
+                    <h3 id="dashQber">0.0%</h3>
+
+                    <p id="dashQberText">
+                        No simulation yet
+                    </p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>CHSH VALUE</span>
+                        <span class="metric-icon">∑</span>
+                    </div>
+
+                    <h3 id="dashChsh">2.82</h3>
+
+                    <p>Bell correlation indicator</p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>DECOHERENCE</span>
+                        <span class="metric-icon">◌</span>
+                    </div>
+
+                    <h3 id="dashDecoherence">LOW</h3>
+
+                    <p>Quantum state stability</p>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+                        <span>SECURITY</span>
+                        <span class="metric-icon">◆</span>
+                    </div>
+
+                    <h3 id="dashSecurity">READY</h3>
+
+                    <p id="dashSecurityText">
+                        Waiting for simulation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHANNEL -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Quantum Channel</h3>
+                        <p>Entangled photon transmission monitor</p>
+                    </div>
+
+                    <span class="channel-status" id="channelStatus">
+                        IDLE
+                    </span>
+
+                </div>
+
+
+                <div class="channel">
+
+                    <div class="node alice">
+
+                        <div class="node-circle">
+                            A
+                        </div>
+
+                        <strong>Alice</strong>
+                        <small>Sender</small>
+
+                    </div>
+
+
+                    <div class="channel-line">
+
+                        <div class="line-track"></div>
+
+                        <div id="photonContainer"></div>
+
+                        <div class="channel-label">
+                            ENTANGLED QUANTUM CHANNEL
+                        </div>
+
+                    </div>
+
+
+                    <div class="node eve-node" id="eveNode">
+
+                        <div class="node-circle">
+                            E
+                        </div>
+
+                        <strong>Eve</strong>
+                        <small>Potential Intruder</small>
+
+                    </div>
+
+
+                    <div class="channel-line short">
+
+                        <div class="line-track"></div>
+
+                        <div id="photonContainer2"></div>
+
+                    </div>
+
+
+                    <div class="node bob">
+
+                        <div class="node-circle">
+                            B
+                        </div>
+
+                        <strong>Bob</strong>
+                        <small>Receiver</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="quick-grid">
+
+                <button class="quick-card" data-section="simulation">
+
+                    <span>⚛</span>
+
+                    <div>
+                        <strong>Custom Simulation</strong>
+                        <small>Configure quantum parameters</small>
+                    </div>
+
+                    →
+                </button>
+
+
+                <button class="quick-card" data-section="scenarios">
+
+                    <span>◈</span>
+
+                    <div>
+                        <strong>Attack Scenarios</strong>
+                        <small>Test different conditions</small>
+                    </div>
+
+                    →
+                </button>
+
+
+                <button class="quick-card" id="mysteryQuick">
+
+                    <span>?</span>
+
+                    <div>
+                        <strong>Mystery Mode</strong>
+                        <small>Find the hidden intruder</small>
+                    </div>
+
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIMULATION -->
+        <section id="simulation" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SIMULATION ENGINE</span>
+
+                    <h2>Configure Quantum Channel</h2>
+
+                    <p>
+                        Set the channel conditions and run a security simulation.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="simulation-layout">
+
+                <div class="panel settings-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Simulation Parameters</h3>
+                            <p>Control the quantum communication environment</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Photon Pairs
+
+                            <strong id="photonValue">
+                                1000
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="photonPairs"
+                            min="100"
+                            max="5000"
+                            step="100"
+                            value="1000"
+                        >
+
+                        <div class="range-info">
+                            <span>100</span>
+                            <span>5000</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Channel Noise
+
+                            <strong id="noiseValue">
+                                2%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="noise"
+                            min="0"
+                            max="30"
+                            step="1"
+                            value="2"
+                        >
+
+                        <div class="range-info">
+                            <span>0%</span>
+                            <span>30%</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            QBER Threshold
+
+                            <strong id="thresholdValue">
+                                11%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="threshold"
+                            min="5"
+                            max="25"
+                            step="1"
+                            value="11"
+                        >
+
+                        <div class="range-info">
+                            <span>5%</span>
+                            <span>25%</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="toggle-row">
+
+                        <div>
+                            <strong>Enable Eve Attack</strong>
+
+                            <small>
+                                Simulate an intercept-resend eavesdropper
+                            </small>
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="eveToggle"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div
+                        class="form-group"
+                        id="interceptGroup"
+                        style="display:none;"
+                    >
+
+                        <label>
+                            Eve Intercept Rate
+
+                            <strong id="interceptValue">
+                                40%
+                            </strong>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="interceptRate"
+                            min="5"
+                            max="100"
+                            step="5"
+                            value="40"
+                        >
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn full"
+                        id="runBtn"
+                    >
+                        ⚛ Run Quantum Simulation
+                    </button>
+
+                </div>
+
+
+                <div class="panel live-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Live Channel</h3>
+                            <p id="liveText">
+                                Ready to transmit photons
+                            </p>
+                        </div>
+
+                        <span
+                            class="channel-status"
+                            id="liveStatus"
+                        >
+                            READY
+                        </span>
+
+                    </div>
+
+
+                    <div class="live-channel">
+
+                        <div class="live-node">
+                            <div>A</div>
+                            <span>ALICE</span>
+                        </div>
+
+
+                        <div class="live-line">
+
+                            <div class="pulse"></div>
+
+                            <span>
+                                Quantum Channel
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="live-eve"
+                            id="liveEve"
+                        >
+                            EVE
+                        </div>
+
+
+                        <div class="live-line">
+
+                            <div class="pulse"></div>
+
+                        </div>
+
+
+                        <div class="live-node">
+                            <div>B</div>
+                            <span>BOB</span>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="progress-wrap"
+                        id="progressWrap"
+                    >
+
+                        <div class="progress-label">
+
+                            <span>Transmission</span>
+
+                            <strong id="progressPercent">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+                            <div id="progressBar"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENARIOS -->
+        <section id="scenarios" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">DEMO SCENARIOS</span>
+
+                    <h2>Security Attack Lab</h2>
+
+                    <p>
+                        Run predefined scenarios for your hackathon demonstration.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="scenario-grid">
+
+                <button
+                    class="scenario-card safe"
+                    data-scenario="safe"
+                >
+
+                    <span class="scenario-icon">✓</span>
+
+                    <h3>Safe Channel</h3>
+
+                    <p>
+                        Low noise, no eavesdropper.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card noise"
+                    data-scenario="noise"
+                >
+
+                    <span class="scenario-icon">≈</span>
+
+                    <h3>Noisy Channel</h3>
+
+                    <p>
+                        Environmental noise without an attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card light"
+                    data-scenario="light"
+                >
+
+                    <span class="scenario-icon">!</span>
+
+                    <h3>Light Attack</h3>
+
+                    <p>
+                        Low-rate intercept-resend attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card heavy"
+                    data-scenario="heavy"
+                >
+
+                    <span class="scenario-icon">⚠</span>
+
+                    <h3>Heavy Attack</h3>
+
+                    <p>
+                        High-rate eavesdropping attack.
+                    </p>
+
+                    <strong>Run Scenario →</strong>
+
+                </button>
+
+
+                <button
+                    class="scenario-card mystery"
+                    data-scenario="mystery"
+                >
+
+                    <span class="scenario-icon">?</span>
+
+                    <h3>Mystery Mode</h3>
+
+                    <p>
+                        The detector must discover whether Eve exists.
+                    </p>
+
+                    <strong>Start Mystery →</strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+        <section id="results" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">DETECTION RESULTS</span>
+
+                    <h2>Quantum Security Analysis</h2>
+
+                    <p>
+                        Detailed analysis of the latest simulation.
+                    </p>
+
+                </div>
+
+                <span
+                    class="result-badge"
+                    id="resultBadge"
+                >
+                    NO DATA
+                </span>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-card main-result">
+
+                    <span>QBER</span>
+
+                    <strong id="resultQber">
+                        0.0%
+                    </strong>
+
+                    <div class="threshold-bar">
+
+                        <div
+                            class="threshold-fill"
+                            id="thresholdFill"
+                        ></div>
+
+                        <div class="threshold-line"></div>
+
+                    </div>
+
+                    <small id="thresholdText">
+                        Threshold: 11%
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>CHSH VALUE</span>
+
+                    <strong id="resultChsh">
+                        2.82
+                    </strong>
+
+                    <small>
+                        Ideal entangled correlation ≈ 2.82
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>DECOHERENCE</span>
+
+                    <strong id="resultDecoherence">
+                        LOW
+                    </strong>
+
+                    <small>
+                        Estimated quantum state disturbance
+                    </small>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span>ERRORS</span>
+
+                    <strong id="resultErrors">
+                        0
+                    </strong>
+
+                    <small id="resultTotal">
+                        out of 0 measurements
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-layout">
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>QBER Analysis</h3>
+                            <p>Observed error rate vs security threshold</p>
+                        </div>
+
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="qberChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <div class="panel alert-panel">
+
+                    <div class="alert-icon" id="alertIcon">
+                        ✓
+                    </div>
+
+                    <h3 id="alertTitle">
+                        Waiting for simulation
+                    </h3>
+
+                    <p id="alertDescription">
+                        Run a simulation to generate a security assessment.
+                    </p>
+
+
+                    <div class="recommendation">
+
+                        <strong>Recommendation</strong>
+
+                        <p id="recommendationText">
+                            Configure the channel and start a simulation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+        <section id="history" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SIMULATION HISTORY</span>
+
+                    <h2>Previous Runs</h2>
+
+                    <p>
+                        Results stored locally for this browser session.
+                    </p>
+                </div>
+
+                <button
+                    class="secondary-btn"
+                    id="clearHistoryBtn"
+                >
+                    Clear History
+                </button>
+
+            </div>
+
+
+            <div class="panel history-panel">
+
+                <div class="history-table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Run</th>
+                                <th>Photons</th>
+                                <th>Noise</th>
+                                <th>Eve</th>
+                                <th>QBER</th>
+                                <th>CHSH</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+<div
+    class="toast"
+    id="toast"
+>
+    Simulation completed
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
